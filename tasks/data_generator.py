@@ -1,6 +1,3 @@
-
-
-
 """
 create a class that given a list of text files will at each iteration return
 the first line of the text only if the file is not suppose to be ignored (see example files below)
