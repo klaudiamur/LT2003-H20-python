@@ -38,4 +38,13 @@ def masked_mean(matrix, mask):
     1) you are not allowed to use any loops instead you are suppose to use matrix operations
 
     """
+    import numpy as np
+    
+    A1 = np.mean(matrix, axis = 3)
+    
+    M2 = np.multiply(A1, mask)
+
+    return M2
+    
+    
     pass
