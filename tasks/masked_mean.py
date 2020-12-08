@@ -49,12 +49,12 @@ def masked_mean(matrix, mask):
     
     pass
 
+## create random matrixes as input:
+#def make_matrix(dimensions):
+ #   import random
+  #  matrix = [[[[ random.random() for i in range(dimensions[3])] for j in range(dimensions[2]) for k in range(dimensions[1])] for l in range(dimensions[0])]
 
-def make_matrix(dimensions):
-    import random
-    matrix = [[[[ random.random() for i in range(dimensions[3])] for j in range(dimensions[2]) for k in range(dimensions[1])] for l in range(dimensions[0])]
-
-    mask = [[[random.randint(0, 1) for j in range(dimensions[2])] for k in range(dimensions[1]) ] for l in range(dimensions[0])]
+   # mask = [[[random.randint(0, 1) for j in range(dimensions[2])] for k in range(dimensions[1]) ] for l in range(dimensions[0])]
     
-    return matrix, mask
+   # return matrix, mask
 
