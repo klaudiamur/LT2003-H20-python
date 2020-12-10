@@ -1,27 +1,16 @@
+import sys
 
 
-
-def what_is_this(unkown):
-    """
+def what_is_this(a):
+    """Returns the type of variable given.
     
-    given a variable it should, 
+    Working from the terminal $ it will always return str. 
+    Please import it in Python with from checker import what_is_this."""
     
-    if its a function: 
-        return "function"
-    
-    if its a class object:
-        return "class":
+    return type(a)
 
-    else:
-        return the type of the varible
+def main():
+	print(what_is_this(sys.argv[1]))
 
-    examples:
-
-    >> what_is_this(1) -> int
-
-    >> def f():
-    >>     pass
-    >> what_is_this(f) -> "function"
-
-    """
-    pass
+if __name__ == '__main__':
+	main()

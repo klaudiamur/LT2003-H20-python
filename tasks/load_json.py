@@ -1,17 +1,28 @@
+import json
+import pandas as pd
 
-"""
-create a function that called load_json() which loads data/json_data.json, extracts the sentences
-and puts them into a pandas.DataFrame with three columns [sentence_id, word_id, word], where a row
-is a one word.
-
-NOTE! the json file is corrupt so you have to manually correct the errors in it to make it load.
-
-
-DataFrame Example:
-
-dataframe ->    | sentence_id | word_id | word   |
-                -----------------------------------
-                | 0           | 0       | "hello"|
-                | 1           | 0       | "bye"  |
-
-"""
+def load_json():
+	with open('json_data.json','r') as f:
+		#load json_data.json file
+		data = json.load(f)
+		#extract the sentences from json_data
+		rows = []
+		for x in data:
+			x_row = x['words']
+			y = x['id']
+			
+			for row in x_row:
+				row['id'] = y
+				rows.append(row)
+		df = pd.DataFrame(rows)
+		df_s = df.set_index('id')
+		df.columns = ['|word_id |','word |','|sentence_id|']
+		print(df_s)
+		
+ 
+if __name__ == '__main__':
+	load_json()
+	
+	
+	
+	

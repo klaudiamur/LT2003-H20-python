@@ -38,4 +38,23 @@ def masked_mean(matrix, mask):
     1) you are not allowed to use any loops instead you are suppose to use matrix operations
 
     """
+    import numpy as np
+    
+    A1 = np.mean(matrix, axis = 3)
+    
+    M2 = np.multiply(A1, mask)
+
+    return M2
+    
+    
     pass
+
+## create random matrixes as input:
+#def make_matrix(dimensions):
+ #   import random
+  #  matrix = [[[[ random.random() for i in range(dimensions[3])] for j in range(dimensions[2]) for k in range(dimensions[1])] for l in range(dimensions[0])]
+
+   # mask = [[[random.randint(0, 1) for j in range(dimensions[2])] for k in range(dimensions[1]) ] for l in range(dimensions[0])]
+    
+   # return matrix, mask
+
