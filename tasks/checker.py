@@ -19,6 +19,7 @@ def what_is_this(a):
     >> what_is_this(f) -> "function"
 	"""
 	if type(a) == type:
-		print('<class \'class\'>')
+		return('class')
 	else:
-		return(type(a))
+		b = str(type(a)).split()[1].strip('">\'')
+		return(b)
