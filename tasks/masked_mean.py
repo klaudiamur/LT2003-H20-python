@@ -37,17 +37,21 @@ def masked_mean(matrix, mask):
     restrictions
     1) you are not allowed to use any loops instead you are suppose to use matrix operations
 
+
     """
+    
     import numpy as np
     
-    A1 = np.mean(matrix, axis = 3)
+    mask = np.array(mask, dtype = 'float64')
+    mask1 = mask.reshape((mask.shape + (1, )))
+    dim_feature = matrix.shape[3]
+    M2 = np.pad(mask1, ((0, 0), (0,0), (0,0), (0, dim_feature - 1)), mode='minimum')    
+    M2[M2==0] = np.nan
     
-    M2 = np.multiply(A1, mask)
-
-    return M2
+    A1 = np.multiply(matrix, M2) 
+    A2 = np.nanmean(A1, axis = 2)    
     
-    
-    pass
+    return A2
 
 ## create random matrixes as input:
 #def make_matrix(dimensions):
