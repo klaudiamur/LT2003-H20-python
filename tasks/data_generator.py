@@ -36,10 +36,11 @@ class DataGenerator:
         return self
 
     def __next__(self):
-        if open(self.files[self.i]).readline() == self.files[self.i]:
-            next_file = self.files[self.i]
+        first_line = open(self.files[self.i]).readline()
+        #ignores the files that contain the word "ignore" in the first line
+        if "ignore" not in first_line:
             self.i += 1
-            return next_file
+            return first_line
         else:
             self.i += 1
             return next(self)
@@ -52,4 +53,4 @@ for data in my_generator:
     print(data)
     if "3" in data:
         break
-print(next(my_generator))
+print(next(my_generator)) #assuming that the next element is not to be ignored
